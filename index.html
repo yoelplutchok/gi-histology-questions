@@ -286,6 +286,7 @@ document.addEventListener("click",e=>{
 });
 document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ const lb=document.getElementById("lb"); if(lb) lb.remove(); } });
 $("#topcnt").textContent="("+D.groups.reduce((a,g)=>a+g.q.filter(q=>q.t).length,0)+")";
+if(UNITS.length) $("#toponly").title="At least two questions from every step of each lecture (more from the most-tested steps), the clearest version of each";
 $("#toponly").onclick=function(){ const on=this.getAttribute("aria-pressed")!=="true"; this.setAttribute("aria-pressed",on); document.body.classList.toggle("toponly",on); try{localStorage.setItem(KEY+"-top",on?"1":"0")}catch(e){} };
 try{ if(/[?&]top\b/.test(location.search)||localStorage.getItem(KEY+"-top")==="1") $("#toponly").click(); }catch(e){ if(/[?&]top\b/.test(location.search)) $("#toponly").click(); }
 if(UNITS.length){ const b=$("#nosum"); b.hidden=false; b.textContent="Hide teaching paragraphs";
