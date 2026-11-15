@@ -298,7 +298,7 @@ span.hlu{text-decoration:underline;text-decoration-color:var(--red);text-decorat
 </head>
 <body>
 <main class="wrap">
-<a class="home" href="https://yoelplutchok.github.io/gi/">← All GI question pages</a><style>.home{display:inline-block;margin-top:20px;font-family:var(--sans);font-size:.84rem;font-weight:600;color:var(--accent);text-decoration:none}.home:hover{text-decoration:underline}</style><header class="mast">
+<a class="home" href="https://yoelplutchok.github.io/gi/top300/">← GI Top 300 pages</a><style>.home{display:inline-block;margin-top:20px;font-family:var(--sans);font-size:.84rem;font-weight:600;color:var(--accent);text-decoration:none}.home:hover{text-decoration:underline}</style><header class="mast">
   <div class="eyebrow">GI exam · Mon Nov 23 2026 · Histology I</div>
   <h1>GI Histology Practice Questions</h1>
   <p class="lede" id="lede">The clicker, interactive, lab and TA-review questions made for the GI histology lectures (2020–2026), set inside the lectures themselves. Each lecture is taught as organized notes in numbered sections and parts. Under every part come its core questions: together they cover everything the part&#x27;s questions test, one clear version of each point. The rest (repeats of a core question and harder versions) wait in a “More questions” dropdown at the end of the part. Tap an answer to see why it is right, why the others are wrong, and the slides that teach it.</p>
@@ -335,7 +335,7 @@ const lt=o=>String(o).trim().replace(/^\(/,"").charAt(0).toUpperCase();
 const byId={}; D.groups.forEach(g=>g.q.forEach(q=>{byId[q.id]=q;q._g=g}));
 const nq=D.groups.reduce((a,g)=>a+g.q.length,0), ng=D.groups.filter(g=>g.q.length>1).length;
 const nsrc=new Set(D.groups.flatMap(g=>g.q.flatMap(q=>q.src.map(s=>s.f||s.t+"|"+s.n)))).size;
-$("#tally").innerHTML=`<span><b>${nq}</b> questions</span><span><b>${ng}</b> groups of similar questions</span><span><b>${nsrc}</b> source files</span><span class="score" id="score"></span>`;
+$("#tally").innerHTML=`<span><b>${nq}</b> questions</span>${D.meta&&D.meta.uw?`<span><b>${D.groups.reduce((a,g)=>a+g.q.filter(q=>q.tier===1).length,0)}</b> core · <b>${D.groups.reduce((a,g)=>a+g.q.filter(q=>q.tier===2).length,0)}</b> more</span>`:`<span><b>${ng}</b> groups of similar questions</span>`}<span><b>${nsrc}</b> source files</span><span class="score" id="score"></span>`;
 $("#lede").textContent=D.meta.lede;
 
 function card(q,n,note){
@@ -486,7 +486,8 @@ function hlTools(){ const T=$("#hltools"); if(!FEAT) return; const bl=selBlocks(
   let top=rr.top-h-8; if(top<8) top=rr.bottom+8; T.style.top=top+"px"; T.style.left=Math.min(Math.max(8,rr.left+rr.width/2-w/2),innerWidth-w-8)+"px"; }
 
 // ---- build the page
-let toc=`<h3>Lectures</h3><ol>`, body="";
+const UW=(D.meta&&D.meta.uw)||"Lecture";  // Nov 8: biochem page is organized by book chapter
+let toc=`<h3>${UW}s</h3><ol>`, body="";
 for(const l of D.lectures){
   const gs=D.groups.filter(g=>g.l===l.id); let k=0, nc=0, inner=""; const nt=gs.reduce((a,g)=>a+g.q.filter(q=>q.t).length,0);
   const tag=l.id.split("-")[1];
@@ -495,7 +496,7 @@ for(const l of D.lectures){
   const US=UNITS.map((u,i)=>[u,i]).filter(([u])=>u.l===l.id);
   if(US.length){ let s=0, lastS=null;
     if(US[0][0].pn){ // lecture outline: sections and their parts, each a link
-      let o=`<nav class="lout" aria-label="Lecture outline"><span class="t">Lecture outline · ${new Set(US.map(([u])=>u.sn)).size} sections, ${US.length} parts</span><ol>`;
+      let o=`<nav class="lout" aria-label="${UW} outline"><span class="t">${UW} outline · ${new Set(US.map(([u])=>u.sn)).size} sections, ${US.length} parts</span><ol>`;
       for(const [u] of US){ if(u.sn!==lastS){ if(lastS!==null) o+=`</ol></li>`; lastS=u.sn; o+=`<li><a href="#${l.id}-s${u.sn}">${u.s}</a><ol>`; }
         o+=`<li><a href="#${l.id}-p${u.pn}"><span class="pnum">${u.pn}</span>${u.h}</a></li>`; }
       inner+=o+`</ol></li></ol></nav>`; lastS=null; }
