@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>GI Histology Practice Questions</title>
+<title>GI Histology: Top 75 Questions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
@@ -210,6 +210,10 @@ details.primer.fold:not([open]) h3{margin-bottom:0}
 details.primer.fold>summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
 .primer h4{font-family:var(--sans);font-size:.76rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2);margin:18px 0 4px}
 .primer ul,.primer ol{margin:.35em 0;padding-left:1.25em;max-width:78ch}
+.primer .rrv{margin:20px 0 6px;padding:10px 16px 10px;border:1px solid var(--rule-2);border-left:4px solid var(--accent);border-radius:8px;background:var(--accent-soft);max-width:82ch}
+.primer .rrv h4{margin:2px 0 6px;color:var(--accent)}
+.primer .rrv ul{margin:0;padding-left:1.15em}
+.primer .rrv li{margin:.18em 0;font-family:var(--sans);font-size:.95rem;line-height:1.4}
 .primer li{margin:.22em 0;line-height:1.56}
 .primer li>ul{margin:.15em 0}
 .primer .tw{overflow-x:auto;margin:.6em 0 .4em;max-width:100%}
@@ -293,15 +297,23 @@ span.hlu{text-decoration:underline;text-decoration-color:var(--red);text-decorat
 .hlnote{font-family:var(--sans);font-size:.8rem;color:var(--ink-3);margin-top:8px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{.floatreset,.controls,.toc{display:none!important}}
+/* top-300 page: the numbered questions carry a clear number chip; the extras in the dropdowns keep a quiet label */
+body.topn article.q>header .qn{font-size:.95rem;color:var(--ink);background:var(--accent-soft);border-radius:6px;padding:1px 9px}
+body.topn .t2body article.q>header .qn{font-size:.76rem;font-weight:600;color:var(--ink-3);background:none;padding:0}
+.lede:empty{display:none}
+/* Nov 17: rapid-review box after the Why of each answered question: the printed box as a picture, red underlines on top */
+.rrw{margin:12px 0 6px}.rrw .lab{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:6px}.rrb{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;margin:0 0 10px}
+.rrf{position:relative;max-width:100%;background:#fff;box-shadow:0 0 0 1px var(--rule-2)}.rrf img{display:block;width:100%;height:auto}
+.rrf i{position:absolute;height:2px;background:#d42a20;border-radius:1px;pointer-events:none}
 </style>
 
 </head>
 <body>
 <main class="wrap">
-<a class="home" href="https://yoelplutchok.github.io/gi/top300/">← GI Top 300 pages</a><style>.home{display:inline-block;margin-top:20px;font-family:var(--sans);font-size:.84rem;font-weight:600;color:var(--accent);text-decoration:none}.home:hover{text-decoration:underline}</style><header class="mast">
+<nav class="homes"><a class="home" href="https://yoelplutchok.github.io/gi/top300/">← GI Top question pages</a></nav><style>.homes{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:20px}.home{font-family:var(--sans);font-size:.84rem;font-weight:600;color:var(--accent);text-decoration:none}.home:hover{text-decoration:underline}</style><header class="mast">
   <div class="eyebrow">GI exam · Mon Nov 23 2026 · Histology I</div>
-  <h1>GI Histology Practice Questions</h1>
-  <p class="lede" id="lede">The clicker, interactive, lab and TA-review questions made for the GI histology lectures (2020–2026), set inside the lectures themselves. Each lecture is taught as organized notes in numbered sections and parts. Under every part come its core questions: together they cover everything the part&#x27;s questions test, one clear version of each point. The rest (repeats of a core question and harder versions) wait in a “More questions” dropdown at the end of the part. Tap an answer to see why it is right, why the others are wrong, and the slides that teach it.</p>
+  <h1>GI Histology: Top 75 Questions</h1>
+  <p class="lede" id="lede"></p>
   <div class="tally" id="tally"></div>
   <div class="controls">
     <button class="btn" id="toponly" type="button" aria-pressed="false" title="One question from each group of similar questions (the clearest, newest version), at most 50 per lecture; groups asked most often across years come first">Top questions only <span class="cnt" id="topcnt"></span></button>
@@ -316,14 +328,14 @@ span.hlu{text-decoration:underline;text-decoration-color:var(--red);text-decorat
 <nav class="toc" id="toc" aria-label="Lectures"></nav>
 <div id="body"></div>
 <div id="hltools" hidden role="toolbar" aria-label="Highlight the selected text"><button type="button" class="sw y" data-a="y" title="Highlight yellow (H)" aria-label="Highlight yellow"></button><button type="button" class="sw g" data-a="g" title="Highlight green" aria-label="Highlight green"></button><button type="button" class="sw p" data-a="p" title="Highlight pink" aria-label="Highlight pink"></button><button type="button" class="u" data-a="u" title="Underline (U)">U</button><button type="button" data-a="x" title="Erase highlights and underlines in the selection (E)">Erase</button></div>
-<p class="foot">Sources: the 2026 digestive interactive and digestive lab deck, the 2024–2025 accessory-gland interactives, clickers and lab deck, the 2022–2024 digestive clickers and lab clickers, the 2025 GI TA reviews, and the digestive parts of the 2020–2024 Histology Exam 2 TA reviews. Answers are the sources&#x27; keys, checked against this year&#x27;s lectures and Junqueira. Where a key was wrong, the correct answer is given and a "Correction" box says what changed. Stars and answers are saved in this browser only.</p>
+<p class="foot">Answers are the sources&#x27; keys, checked against this year&#x27;s lectures and Junqueira. Where a key was wrong, the correct answer is given and a &quot;Correction&quot; box says what changed. Stars and answers on this page are saved in this browser only.</p>
 </main>
 <button class="btn floatreset" id="reset2" type="button" hidden>Clear my answers</button>
 
-<script src="data.js"></script>
+<script src="data.js?v=0fa5a76280"></script>
 <script>
 (function(){
-const D=window.GIQ, KEY="gi-hist", FEAT=!!(D.meta&&D.meta.feat);
+const D=window.GIQ, KEY="gi-hist", FEAT=!!(D.meta&&D.meta.feat), TOPN=(D.meta&&D.meta.top)||0;
 const store={get(k){try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const FOLD=!!(D.meta&&D.meta.fold), FD=FOLD?(store.get(KEY+"-fold")||{}):{};  // Nov 5: closed notes parts, {"<lecture>:<part>":1}
 const TIER=!!(D.meta&&D.meta.tier), T2=TIER?(store.get(KEY+"-t2")||{}):{};  // Nov 5: core / more tiers; open "More questions" dropdowns, {"<lecture>:<part>":1}
@@ -336,7 +348,8 @@ const byId={}; D.groups.forEach(g=>g.q.forEach(q=>{byId[q.id]=q;q._g=g}));
 const nq=D.groups.reduce((a,g)=>a+g.q.length,0), ng=D.groups.filter(g=>g.q.length>1).length;
 const nsrc=new Set(D.groups.flatMap(g=>g.q.flatMap(q=>q.src.map(s=>s.f||s.t+"|"+s.n)))).size;
 $("#tally").innerHTML=`<span><b>${nq}</b> questions</span>${D.meta&&D.meta.uw?`<span><b>${D.groups.reduce((a,g)=>a+g.q.filter(q=>q.tier===1).length,0)}</b> core · <b>${D.groups.reduce((a,g)=>a+g.q.filter(q=>q.tier===2).length,0)}</b> more</span>`:`<span><b>${ng}</b> groups of similar questions</span>`}<span><b>${nsrc}</b> source files</span><span class="score" id="score"></span>`;
-$("#lede").textContent=D.meta.lede;
+$("#lede").textContent=TOPN?"":D.meta.lede;
+if(TOPN){ document.body.classList.add("topn"); $("#tally").innerHTML=`<span><b>${TOPN}</b> top questions, numbered</span><span><b>${nq-TOPN}</b> other questions in the dropdowns</span><span><b>${nsrc}</b> source files</span><span class="score" id="score"></span>`; }
 
 function card(q,n,note){
   const badges=(note||"")+q.src.slice(0,3).map(s=>`<span class="badge" title="${esc(s.n)}${s.sl?" · slide "+s.sl:""}">${esc(s.t)}</span>`).join("")+(q.src.length>3?`<span class="badge">+${q.src.length-3}</span>`:"");
@@ -354,8 +367,9 @@ function answer(el,q,picked){
   else { v.className="verdict"; v.innerHTML=`<button class="again" type="button">Hide answer</button>`; const b=el.querySelector(".showans"); if(b) b.hidden=true; }
   v.hidden=false; const ql=el.querySelector(".qlgd"); if(ql) ql.hidden=false;
   let h=`<div class="ans" data-hk="a:${esc(q.id)}"><span class="lab">${G.length>1&&!q.rv?"Accepted answers":"Answer"}</span>${esc(label)}</div>`;
-  if(q.fl.length) h+=q.fl.map((f,i)=>`<div class="fixbox" data-hk="f:${esc(q.id)}:${i}"><span class="lab">${q.ch?"Correction"+(q.k&&q.k.length?" · the source keyed "+esc(q.k.join(", ")):""):"Note on the source"}</span>${esc(f)}</div>`).join("");
+  if(q.fl.length) h+=q.fl.map((f,i)=>`<div class="fixbox" data-hk="f:${esc(q.id)}:${i}"><span class="lab">${D.meta.feat?"Correction":(q.ch?"Correction"+(q.k&&q.k.length?" · the source keyed "+esc(q.k.join(", ")):""):"Note on the source")}</span>${esc(f)}</div>`).join("");
   if(q.why) h+=`<div class="why" data-hk="w:${esc(q.id)}"><span class="lab">Why</span>${q.why}</div>`; else if(q.ex) h+=`<div class="why" data-hk="w:${esc(q.id)}"><span class="lab">From the source</span>${esc(q.ex)}</div>`;
+  if(q.rr) h+=q.rr;
   if(g.slides.length&&FEAT){ const nt=g.slides.filter(s=>s.tb).length, ns=g.slides.length-nt;
     h+=`<details class="slides"><summary>${ns?"Slides":""}${ns&&nt?" &amp; ":""}${nt?"Textbook":""} <span class="sct">(${[ns?ns+" slide"+(ns>1?"s":""):"",nt?nt+" textbook picture"+(nt>1?"s":""):""].filter(Boolean).join(", ")})</span></summary>${g.slides.map(figHTML).join("")}</details>`; }
   else if(g.slides.length) h+=`<details class="slides"><summary>Slides (${g.slides.length})</summary>${g.slides.map(s=>`<figure><img loading="lazy" src="${s.src}" alt="${esc(s.cap)}"><figcaption>${esc(s.cap)} <small>· ${esc(s.where)}</small></figcaption>${lgHTML(s.lg)}</figure>`).join("")}</details>`;
@@ -504,13 +518,13 @@ for(const l of D.lectures){
       let qhtml, qs;
       if(TIER){ // Nov 5 (anatomy): core cards in page order, then the rest in a "More questions" dropdown that opens in place
         const flat=ug.flatMap(g=>g.q), core=flat.filter(q=>q.tier!==2), more=flat.filter(q=>q.tier===2), num={};
-        core.forEach(q=>num[q.id]=tag+"·"+(++k)); more.forEach(q=>num[q.id]=tag+"·"+(++k)); nc+=core.length;
-        const note=q=>q.kind==="repeat"&&num[q.like]?`<span class="like" title="Tests the same point as question ${num[q.like]} above">Same idea as ${num[q.like]}</span>`
+        core.forEach(q=>num[q.id]=tag+"·"+(++k)); more.forEach(q=>num[q.id]=tag+"·"+(++k)); nc+=core.length; if(TOPN) flat.forEach(q=>num[q.id]=q.n);
+        const note=q=>q.kind==="repeat"&&num[q.like]?`<span class="like" title="Tests the same point as question ${num[q.like]} above">Same idea as ${TOPN?"question ":""}${num[q.like]}</span>`
           :q.kind==="harder"?`<span class="like hard" title="${num[q.like]?"A harder or trickier version of question "+num[q.like]:"A harder or trickier question"}">Harder</span>`:"";
         const cnt=(kd,w)=>{ const c=more.filter(q=>q.kind===kd).length; return c?c+" "+w+(c>1&&kd==="repeat"?"s":""):""; };
-        const kinds=[cnt("repeat","repeat"),cnt("harder","harder"),cnt("minor","other")].filter(Boolean).join(", ");
-        qhtml=core.map(q=>card(q,num[q.id])).join("")+(more.length?`<div class="t2${T2[pk]?" open":""}" data-pk="${esc(pk)}"><button class="t2btn nohl" type="button" aria-expanded="${!!T2[pk]}">More questions on this part <span class="t2n">${more.length} · ${kinds}</span></button><div class="t2body"${T2[pk]?"":" hidden"}>${more.map(q=>card(q,num[q.id],note(q))).join("")}</div></div>`:"");
-        qs=`${core.length} core question${core.length>1?"s":""} below${more.length?`, then ${more.length} more in the dropdown`:""}`; }
+        const kinds=[cnt("repeat","repeat"),cnt("harder","harder"),cnt("minor",TOPN?"on other points":"other")].filter(Boolean).join(", ");
+        qhtml=core.map(q=>card(q,num[q.id])).join("")+(more.length?`<div class="t2${T2[pk]?" open":""}" data-pk="${esc(pk)}"><button class="t2btn nohl" type="button" aria-expanded="${!!T2[pk]}">${TOPN?"Other questions on this part (not in the top "+TOPN+")":"More questions on this part"} <span class="t2n">${more.length} · ${kinds}</span></button><div class="t2body"${T2[pk]?"":" hidden"}>${more.map(q=>card(q,num[q.id],note(q))).join("")}</div></div>`:"");
+        qs=TOPN?(core.length?`Top-${TOPN} question${core.length>1?"s":""} ${num[core[0].id]}${core.length>1?"–"+num[core[core.length-1].id]:""} below`:`No top-${TOPN} question on this part`)+(more.length?`${core.length?", then":";"} ${more.length} other question${more.length>1?"s":""} in the dropdown`:""):`${core.length} core question${core.length>1?"s":""} below${more.length?`, then ${more.length} more in the dropdown`:""}`; }
       else { qhtml=ug.map(box).join(""); qs=n===1?"question "+tag+"·"+k0:"questions "+tag+"·"+k0+"–"+tag+"·"+(k0+n-1); }
       if(u.pn){ let sh="";
         if(u.sn!==lastS){ lastS=u.sn; sh=`<h3 class="lsec" id="${l.id}-s${u.sn}"><span class="sn">Section ${u.sn}</span>${u.s}</h3>`; }
@@ -518,8 +532,8 @@ for(const l of D.lectures){
         inner+=`<div class="unit" id="${l.id}-p${u.pn}">${sh}`+(FOLD?`<details class="primer notes fold" data-pk="${pk}" data-hk="p:${pk}"${FD[pk]?"":" open"}><summary>${ph}</summary><div class="pbody">${pb}</div></details>`:`<div class="primer notes" data-hk="p:${pk}">${ph}${pb}</div>`)+`${qhtml}</div>`; }
       else inner+=`<div class="unit"><div class="primer"><span class="pn">Step ${++s} of ${US.length}</span><h3>${u.h}</h3>${u.p}<div class="pq">Next: ${qs}</div></div>${qhtml}</div>`; } }
   else for(const g of gs) inner+=box(g);
-  toc+=`<li><a href="#${l.id}"><span class="id">${tag}</span>${esc(l.t)}</a><span class="n"><span class="nall">${k}</span><span class="ntop">${nt}</span></span></li>`;
-  body+=`<section class="sec" id="${l.id}"><div class="sechead"><h2><span class="id">${esc(l.id)}</span> ${esc(l.t)}</h2><span class="n">${TIER?`${nc} core · ${k-nc} more`:`<span class="nall">${k} questions</span><span class="ntop">top ${nt} of ${k}</span>`}</span></div>${sumPanel(l)}${inner}</section>`;
+  toc+=`<li><a href="#${l.id}"><span class="id">${tag}</span>${esc(l.t)}</a><span class="n"><span class="nall">${TOPN?nc:k}</span><span class="ntop">${nt}</span></span></li>`;
+  body+=`<section class="sec" id="${l.id}"><div class="sechead"><h2><span class="id">${esc(l.id)}</span> ${esc(l.t)}</h2><span class="n">${TIER?(TOPN?`${nc} of the top ${TOPN} · ${k-nc} other`:`${nc} core · ${k-nc} more`):`<span class="nall">${k} questions</span><span class="ntop">top ${nt} of ${k}</span>`}</span></div>${sumPanel(l)}${inner}</section>`;
 }
 $("#toc").innerHTML=toc+`</ol>`; $("#body").innerHTML=body;
 if(FEAT){ decorate($("#body")); for(const k of Object.keys(HL)){ const b=document.querySelector(`[data-hk="${CSS.escape(k)}"]`); if(b) applyHL(b); } }
